@@ -1,7 +1,7 @@
 import Clusterisation, LoadData, MakePlot, PDF_maker, PrepareData, DataFromClusters
 
-n_clusters = 10 #or -1 for clasters == crimeies not more 156
-primaryType = False # == !FBI code
+n_clusters = 156 #or -1 for clasters == crimeies not more 156
+primaryType = True # == !FBI code
 
 X, y, data, dictionary_crimes = PrepareData.prepareData(LoadData.load_from_csv(primaryType), primaryType)  # dictionary is exist onprimaryType == True
 

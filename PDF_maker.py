@@ -8,7 +8,7 @@ def make_pdf_clusters(data, dictionary, number):
     writer = PDFLite("reports/Cluster#"+str(number)+".pdf")
     writer.set_information(title="Statistic")
     document = writer.get_document()
-    n_cluster = 1
+    document.add_text("Cluster #" + str(number) + ":\n")
     index_list = 0
     for i in data:
         if index_list == 0 or index_list == 1:
@@ -17,14 +17,14 @@ def make_pdf_clusters(data, dictionary, number):
         index_list += 1
         line = "Area#" + str(i[0]) + " Description: " + str({key for key, value in dictionary.iteritems() if value == i[1]})\
             .replace('set([','').replace('])','') + "\n"
-        document.add_text("Cluster #" + str(n_cluster) + ":" + line)
+        document.add_text(line)
     writer.close()
 
 def make_pdf_clusters_without_descr(data, number):
     writer = PDFLite("reports/Cluster#" + str(number) + ".pdf")
     writer.set_information(title="Statistic")
     document = writer.get_document()
-    n_cluster = 1
+    document.add_text("Cluster #" + str(number) + ":\n")
     index_list = 0
     for i in data:
         if index_list == 0 or index_list == 1:
@@ -32,7 +32,7 @@ def make_pdf_clusters_without_descr(data, number):
             continue
         index_list += 1
         line = "Area#" + str(i[0]) + " FBI CODE: " + str(i[1]) + "\n"
-        document.add_text("Cluster #" + str(n_cluster) + ":" + line)
+        document.add_text( + line)
     writer.close()
 
 def makeCounter(data, dictionary, isLingvistic):

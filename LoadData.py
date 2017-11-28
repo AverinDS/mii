@@ -7,7 +7,7 @@ def load_from_csv(variant):
     # path_to_csv = 'C:\Users\DELL\YandexDisk\ulstu\CourceWorkMII\Chicago_Crimes_2008_to_2011.csv'
     # path_to_csv = 'C:\Users\DELL\YandexDisk\ulstu\CourceWorkMII\Chicago_Crimes_2012_to_2017.csv'
 
-    data = pandas.read_csv(path_to_csv, index_col='ID', sep=',', error_bad_lines=False, nrows=150)
+    data = pandas.read_csv(path_to_csv, index_col='ID', sep=',', error_bad_lines=False, nrows=150000)
     if variant == True:
         return data[['Community Area', 'Primary Type']].as_matrix()
     elif variant == False:
